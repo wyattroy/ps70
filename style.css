@@ -7,7 +7,7 @@ body {
   }
 
 .textcontainer {
-  padding: 10%;
+  padding: 5%;
 }
 
 p {
@@ -45,7 +45,8 @@ nav {
 }
 
 .nav-title{
-  margin: 30px;
+  padding: 10px;
+  margin: 0px;
   color: #000000;
 }
 
@@ -90,4 +91,8 @@ code {
 
 #aboutme {
   padding: 20px;
+}
+
+.image-inline {
+  margin-bottom: 15px;
 }
