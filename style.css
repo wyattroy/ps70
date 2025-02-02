@@ -1,81 +1,68 @@
 body {
-    font: 20px "Gill Sans", Verdana, sans-serif;
+    font: 12px "Trebuchet MS", Arial, sans-serif;
     line-height: 1.8;
     color: #000000;
-    background-color: #dcdcdc;
-    padding-top: 0px !important;
+    background-color: #ffffff;
+    padding-top: 10px !important;
   }
 
 .textcontainer {
-  padding: 2% 10%;;
+  padding: 10%;
 }
 
-p {font-size: 16px;}
-.margin {margin-bottom: 30px;}
+p {
+  font-size: 0.75rem;
+}
+
+.margin {
+  margin-bottom: 30px;
+}
 
 a {
   color: #000000;
 }
 
 .container-fluid {
-  padding: 0px;
+  padding: 20px;
   /*padding-bottom: 70px;*/
 }
 
 nav {
-  background-color: #dcdcdc;
-  color: #EEE7E8;
-  padding: 50px 0px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0px;
 }
 
 .navbar-nav {
+  color: #000000 !important;
   display: flex;
   justify-content: flex-start;
-  gap: 30px;
+  gap: 20px;
+}
+
+.navbar-nav a {
+  color: #000000 !important;
 }
 
 .nav-title{
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 30px;
   color: #000000;
 }
 
 .nav-link {
-  border: 3px outset #a3a3a3;
-  border-radius: 20px;
-  padding: 10px 30px;
-  background-color: #a3a3a3;
-  color: #EEE7E8;
-  transition: 0.3s;
+  padding: 10px;
+  color: #000000;
 }
 
-.nav-link:hover {
-  border: 3px outset #FFFFFF;
-  border-radius: 20px;
-  padding: 10px 30px;
-  background-color: #a3a3a3;
-  transition: 0.3s;
-}
 
 #btn {
-  border: 3px outset #FFFFFF;
-  border-radius: 40px;
   padding: 10px 30px;
-  background-color: #a3a3a3;
+  background-color: #2177c3;
   color: #000000;
-  transition: 0.3s;
-}
-
-#btn:hover {
-  border: 3px inset #FFFFFF;
-  border-radius: 40px;
-  padding: 10px 30px;
-  background-color: #a3a3a3;
-  transition: 0.3s;
 }
 
 .row {
-  margin: auto auto;
+  margin: auto;
 }
 
 .flexrow {
@@ -95,7 +82,7 @@ code {
 }
 
 .caption {
-  color: gray;
+  color: rgb(207, 12, 12);
   font-size: 16px;
   text-align: center;
   font-style: italic;
