@@ -1,5 +1,5 @@
 body {
-    font: 12px "Trebuchet MS", Arial, sans-serif;
+    font: 1rem "Trebuchet MS", Arial, sans-serif;
     line-height: 1.8;
     color: #000000;
     background-color: #ffffff;
@@ -11,11 +11,11 @@ body {
 }
 
 p {
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 .margin {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 a {
