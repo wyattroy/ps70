@@ -6,50 +6,165 @@
 <link href="../style.css" rel="stylesheet">
 
 
-<nav class="navbar navbar-expand-sm navbar-dark" style=" color: #EEE7E8;">
+<nav class="navbar navbar-expand-sm navbar-dark">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
-    <div class="flexrow">
-      <h2 class="nav-title">PS70 Fall 2024</h2>
-    </div>
     <div class="navbar-nav">
-      <h4><a class="nav-link" href="../index.html">Home</a></h4>
+    
+      <h4><a class="nav-link" href="../index.html">Wyatt's PS70</a></h4>
       <h4><a class="nav-link" href="../about.html">About</a></h4>
+      
     </div>
   </div>
 </nav>
 
 <body>
-<xmp style="display:none;">
 <div class="textcontainer">
 <p class="margin">   </p>
 
 <h3>Week 2: 2D Design & Cutting</h3>
+<p>
+  <img src="/02_2Ddesign/images/tvbox1.jpg">
+</p>
 
 <p class="margin">   </p>
-<div class="flexrow">
-  <a id="btn" href="./temp.zip" download>Test Download Button
-  </a>
-</div>
+
 <p class="margin">   </p>
 
 <h4>Assignment 1: Make a Box</h4>
+<p>
+  I decided to make a box with parametrically designed teeth that are calculated based off the lengths of the width, height, and depth of the box. The teeth were designed to fit together and cut on the laser cutter.
+</p>
+
+<h5>Steps</h5>
+<p>
+  First I input the parameters, many of which were formulas that tied them to other parameters.
+</p>
+<p>
+  <img src="/02_2Ddesign/images/boxdesign4.png">
+  </p>
+  
+  <p>
+    Then I deleted a face and the Fusion timeline got angry at me: 
+  </p>
+  <p>
+    <img src="/02_2Ddesign/images/boxdesign3.png">
+  </p>
+  <p>
+    <em>Look at that angry red square</em>
+  </p>
+
+  <p>
+    Then  I blew out the box so all faces were on one plane and I could project the box onto an outline to bring it into Rhino and send it to the laser cutter.
+  </p>
+  <p>
+    I wanted this box to look like an oldschool TV so I found an original Matt Groening line drawing of the Simpsons and converted it into a vector path in Photoshop.
+  </p>
+  <p>
+    <img src="/02_2Ddesign/images/simpsonspath.jpg" alt="TV Box Design">
+  </p>
+
+  <p>
+    Then I imported the path and added some TV details in Rhino, before sending it to the laser cutter.
+  </p>
+<p>
+  <img src="/02_2Ddesign/images/simpsonsrhino.jpg">
+</p>
 
 
+<p> 
+  The laser cutter took 45 seconds to cut out the box. <b>BUT IT TOOK 45 MINUTES TO ENGRAVE THE SIMPSONS.</b> Big learning. Straight cuts are fast, intricate drawing is slow.
+</p>
+
+<p>
+  When I tried to put the pieces together, I realized that some of the teeth hadn't been cut out from one of the sides. Some manual intervention was necessary.
+</p>
+<p>
+  <img src="/02_2Ddesign/images/tvbox3.jpg" alt="TV Box Design">
+</p>
+<p>
+  Lastly I hotglued the joints together for sturdiness and added an antenna made from scrap wire left in the shop. Done!
+</p>
+<p>
+  <img src="/02_2Ddesign/images/tvbox2.jpg" alt="TV Box Design">
+</p>
 
 <h4>Assignment 2: Fusion 360 Tutorial</h4>
-
+<p>
+  I followed these wonderful humans' help.
+</p>
+<p> <h5>Helpful tutorials:</h5>
+ 
+  <list>
+    <li>
+        <a href="https://www.youtube.com/watch?v=9U2JPfkQpsE" target="_blank">Box with finger joints tutorial</a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=3pbdLIeWzpE&t=1180s" target="_blank"> Consistent finger joint size</a>
+    </li>
+  
+  <li>
+    <a href="https://www.youtube.com/watch?v=eWGCv48ylEQ" target="_blank">Thread Tool</a>
+  </li>
+</list>
+</p>
 
 <h4>Assignment 3: Fusion Modeling</h4>
+<p>
+  First I modeled a tiny screw that I found on the ground in the shop.
+</p>
+<p>
+  <img src="/02_2Ddesign/images/screw1.jpg" alt="Tiny Screw">
+</p>
+<p>
+  Had to learn how to add thread in fusion -- which was easy to approximate, but almost impossible to accurately replicate the screw I found. 
+  <p>
+    <img src="/02_2Ddesign/images/screwdesign2.png" alt="Tiny Screw">
+  </p>
+  <p>
+    So I made a nut as well.
+</p>
+<p>
+  <img src="/02_2Ddesign/images/screwdesign3.png" alt="Tiny Screw">
+</p>
+<p>
+  Then I tried my hand at something totally free of tutorials: a ziptie that was in the shop.
+</p>
+<p>
+<img src="/02_2Ddesign/images/ziptie1.jpg" alt="Ziptie">
+<p>
+  For such a disposable object, it's quite intricate.
+</p>
+<p>
+<img src="/02_2Ddesign/images/ziptie2.jpg" alt="Ziptie">
+</p>
+<p>
+  The tiny tooth in the buckle part took some finagling. 
+</p>
+<p>
+<img src="/02_2Ddesign/images/zipdesign1.png" alt="Ziptie">
+<p>
+  As did the teeth on the bottom -- but I was able to use a similar method as when I made the box's teeth but this time from memory! Very satisfying. Learning is COOL!!! 
+</p>
+<p>
+<img src="/02_2Ddesign/images/zipdesign2.png" alt="Ziptie">
+</p>
+<p>
+  Finished sketch: 
+</p>
+<p>
+  <img src="/02_2Ddesign/images/zipdesign3.png" alt="Ziptie">
+  </p>
 
 
-
+<div class="flexrow">
+  <a id="btn" href="./learningfusion.zip" download>Download all the Fusion files
+  </a>
+</div>
 
 
 </div>
-</xmp>
 </body>
 
-<script src="../strapdown.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
 
 </html>
