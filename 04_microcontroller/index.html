@@ -148,8 +148,70 @@
 <p>
   My most important learning today: working alone is best done with a base level competency. Learning alone is brutal. Huge shoutout to this class and teaching staff for all of the support. You make making fun.
 </p>
+<p class="margin"></p>
 
-
+<h5>Programming it</h5>
+<p>
+  As a nod towards my key learning from this project -- namely, how important it is to call for help --  I made the LED flash "SOS" in morse code when you push the button. 
+</p>
+<p>
+  <img src="images/sos.gif" alt="sos">
+</p>
+<p>
+  My code:<br/>
+  <pre><code>
+    #define switchPin 4  // Use the actual pin you're connecting
+    #define ledPin 16
+    #define numFlashes 1
+    
+    void setup() {
+      Serial.begin(115200);
+      pinMode(switchPin, INPUT_PULLUP);  // Enables internal pull-up resistor
+      pinMode(ledPin, OUTPUT);
+    }
+    
+    void loop() {
+      int state = digitalRead(switchPin);
+      
+      if (state == 0){
+        
+        for (int i = 0; i < numFlashes; i++){
+          sendSOS();
+        }
+      }
+      if (state == 1){
+        digitalWrite(ledPin, LOW);
+      }
+      Serial.println(state);
+    }
+    
+    void dit() {
+        digitalWrite(ledPin, HIGH);
+        delay(100);
+        digitalWrite(ledPin, LOW);
+        delay(200);
+    }
+    
+    void dash() {
+          digitalWrite(ledPin, HIGH);
+          delay(500);
+          digitalWrite(ledPin, LOW);
+          delay(100);
+    }
+    
+    void sendSOS(){
+      dit();
+      dit();
+      dit();
+      dash();
+      dash();
+      dash();
+      dit();
+      dit();
+      dit();
+    }
+    </code></pre>
+</p>
 <!-- <div class="flexrow">
   <a id="btn" href="images/fanlampfiles.zip" download>Download all the Fusion files
   </a>
