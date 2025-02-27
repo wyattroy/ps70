@@ -4,7 +4,10 @@
 <title>PS70: Intro to Digital Fabrication </title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="../style.css" rel="stylesheet">
-
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
 
 <nav class="navbar navbar-expand-sm navbar-dark">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
@@ -29,7 +32,7 @@
 <p class="margin">   </p>
 
 
-<h4>Assignment 1: Make Arduino Do Something</h4>
+<h4>Assignment: Make Arduino Do Something</h4>
 <p>
   This week featured a staggering series of undiagnosable failures. Here is an absurdly simple circuit that I spent four (4!) hours trying to get to work.
 </p>
@@ -37,10 +40,32 @@
   <img src="images/failbutton.gif" alt="fail button">
 </p>
 <p>
-  This, unfortunately, is my submission to this week's assignment. I used the arduino reference manual, gpt, and extensive googling to try and figure out why my serial monitor was either receiving only garbarge signals, or zeros. 
+  This, unfortunately, is my submission to this week's assignment. 
+  </p>
+  <p>
+    <img src="images/failcircuittop.jpg" alt="fail button">
+  </p>
+  <p>
+  I used the arduino reference manual, gpt, and extensive googling to try and figure out why my serial monitor was either receiving only garbarge signals, or zeros. 
 </p>
 <p>
   <img src="images/arduinoide.png" alt="arduino">
+</p>
+<p>
+  My code: <br/>
+  <pre><code>#define switchPin 4 // I also tried 5, 14, and 15
+
+  void setup() {
+    Serial.begin(115200);
+    pinMode(switchPin, INPUT_PULLUP);  // I also tried using a PULLDOWN with a 10k ohm resistor
+  }
+  
+  void loop() {
+    int state = digitalRead(switchPin);
+    Serial.println(state);
+    delay(200); // So many garbage values were flooding the terminal so I introduced this delay
+  }
+</code></pre>
 </p>
 <p>
   Unfortunately, literally all I could figure out how to get this thing to do was turn on a green LED. Without a button.
@@ -71,7 +96,14 @@
 <h5>Soldering</h5>
 <p>
   Given that my electronics were such a staggering fail, I decided to practice a core skill 
-  that would be useful in future projects -- soldering. I made a 4-LED array of white lights, 
+  that would be useful in future projects -- soldering. 
+  
+</p>
+<p>
+  <img src="images/circuit.png" alt="circuit diagram">
+</p>
+<p>
+  I made a 4-LED array of white lights, 
   wired in parallel, each with its own resistor attached to it. 
   </p>
   <p>
