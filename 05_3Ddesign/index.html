@@ -20,39 +20,177 @@
 <body>
 <div class="textcontainer">
 
-<h3>Week 4: Microcontrollers</h3>
+<h3>Week 5: 3D Design</h3>
 <p class="margin">   </p>
 <p>
-  <img src="images/ledhand.jpg" alt="led hand">
-</p>
-
-<p class="margin">   </p>
-
-
-<h4>Assignment X: Y</h4>
-<p>
-  Text
-</p>
-<p>
- More text
+  <img src="images/3dprint2.gif" alt="3D printing">
 </p>
 
 <p class="margin">   </p>
 
-<h5>Levers and cams</h5>
+
+<h4>The Mission</h4>
 <p>
-  Turning rotational movement into windshield-wiper movement was utterly unintuitive, and it's a game of millimeters. What I realized through experimentation with the peg board was that the most important variables were the distance between the center of the motor-wheel's axle and the lever-arm's axle -- and the lever-arm had to be at least 2x the diameter of the motor wheel. The Fan arm's axle position determines what angle swing the arm swings at. 
+  One of the joys of digital fabrication is precision -- you can make exact right angles with ease and cut effortless perfect circles. But it's much harder to make forms that feel warm, human, and organic. Often these processes force us to compress out and forgo all that is messy, spontaneous, sketchy. 
+</p>
+<p>This week I wanted to explore what happens when we use digital tools to create a non-digital-seeming object. And because 3D printers are so good at making interlocking forms, I decided to make a chain -- a food chain.
 </p>
 <p>
- <img src="images/motionexperiment.gif" alt="lever and cam">
+ <img src="images/sketch.jpeg" alt="food chain">
+</p>
+
+<p class="margin">   </p>
+
+<h5>Modelling in VR</h5>
+<p>
+  I hopped into VR and used Adobe Medium to create a 3D sketch of the chain. My friends came by so I taught them all how to draw in VR too! It's a staggeringly useful digital fabrication technique -- a ton of pitfalls and technical challenges, but a ton of potential too.
+  </p>
+<p>
+  <img src="images/teachingvr.jpg" alt="3D model">
+</p>
+  
+  
+  <p>My first iteration was drawing 3D objects out of lines, and the challenge was to interlock all of the elements in the chain while keeping the lines a consistent thickness. 
+  </p>
+  <p>
+    <img src="images/mediumvr1.gif" alt="3D model">
+  </p>
+ <p> 
+  Then I exported the model as an OBJ and brought it into Prusa.
+</p>
+<p>
+ <img src="images/prusachain1.png" alt="3D model">
+ </p>
+ <p class="margin">   </p>
  
+ <h5>Designing the supports</h5>
+<p>
+  This piece was supposed to be a small metal chain where each animal/plant is about 5mm long-- but the limitations of our Prusa machines required me to scale it up, or else certain layers (in orange) wouldn't get printed, as you can see below. I set the support material to "organic" (in green) which in theory would allow me to easily remove it after printing.
+</p>
+<p>
+ <img src="images/prusachain2.png" alt="3D model">
+ </p> 
+  <p class="margin">   </p>
  
+ <h5>Printing</h5>
+<p>
+  The print took about 3 hours, and failed multiple times. I printed it at two different resolutions -- the one that worked best was the highest resoltion (0.05mm) setting, which took 9 hours -- so I made sure to print it overnight on Saturday while there were 5 other printers free!
+</p>
+<p>
+  <img src="images/3dprint1.gif" alt="3D print">
+</p>
+<p>
+  The high res print next to the lower res (0.15mm) print:
+</p>
+<p>
+  <img src="images/hireslowres.jpeg" alt="3D print">
+  </p>
+<p class="margin">   </p>
+
+<h5>Removing Supports</h5>
+<p>
+  This ended up being the most tedious part of the project -- for over an hour I used a candle to heat up a scalpel, as well as tiny pliers, to pry off most of the support material. Some parts of the structure broke, and many support bits remained inaccessibly locked inside the chain.
+</p>
+<p>
+  <img src="images/timelapse.gif" alt="chain">
+</p>
+<p>
+  In the end, I realized that most of the plastic I'd printed had been support material, not the chain itself.
+</p>
+<p>
+  <img src="images/supportmaterial.jpeg" alt="chain">
+</p>
+<p>
+  The first chain ended up so pockmarked by support connections that its animals weren't easily recognizable.
+</p>
+<p>
+  <img src="images/foodchain1cleaned.gif" alt="chain">
+</p>
+<p class="margin">   </p>
+
+<h5>Second Iteration</h5>
+<p>
+  I went back into VR and redrew a new chain, from scratch -- this time, with 3D lines of 2D animal/plant drawings. This was faster the second time, but still came with challenges -- like how to deform each object to interlock with the next, along the Z-plane. 
+</p>
+<p>
+  <img src="images/mediumvr2.gif" alt="chain">
+</p>
+<p>
+  When brought into Prusa, this sat flat with much less support material needed. Phew!
+</p>
+<p>
+  <img src="images/prusachain2.gif" alt="chain">
+</p>
+<p class = "margin">   </p>
+
+
+<h5>Failures</h5>
+<p>
+  The first 3D print failed because parts of the chain didn't adhere to the print bed.
+</p>
+<p>
+  <img src="images/3dprintfail.jpeg" alt="chain">
+</p>
+<p class="margin">   </p>
+
+<h5>Prusa Round 2</h5>
+<p>
+I had to manually paint on support material to make sure it would stick.
+</p>
+<p>
+  <img src="images/prusachain4.png" alt="chain">
+</p>
+<p class="margin">   </p>
+ 
+<h5>Success</h5>
+<p>
+With the new supports, scaled up in size, the chain printed successfully. 
+</p>
+<p>
+  <img src="images/3dprint2.gif" alt="chain">
+</p>
+<p class="margin">   </p>
+
+<h5>Insight</h5>
+<p>
+Apparently you can use a heat gun to remove the support material! I didn't know this at the time. And it seems risky with such delicate forms as I was working with. So once again, I spent an hour removing the supports.
+</p>
+<p class="margin">   </p>
+
+<h5>Final product</h5>
+<p>
+The chain is still a bit rough, but I'm happy with the result. I think it's a good example of how digital tools can be used to create something that feels organic and hand-made. For the next iteration, I want to make more organisms so that they stretch around a whole neck, print it in metal, much smaller!
+</p>
+<p>
+  <img src="images/foodchainfinal.jpeg" alt="chain">
+</p>
+<p>
+  Can you tell what each of the organisms are? 
+</p>
+<p class="margin">   </p>
 
 <div class="flexrow">
-  <a id="btn" href="images/fanlampfiles.zip" download>Download all the Fusion files
+  <a id="btn" href="images/foodchainfiles.zip" download>Download the Food Chain OBJs
   </a>
 </div>
+<p class="margin">   </p>
 
+<h5>Scanning</h5>
+<p>
+  Because I've worked for Polycam for so long and done photogrammetry before, I ended up teaching other students how to make scans. 
+</p>
+<p>
+  <iframe src="https://poly.cam/capture/F830273F-ED4F-456B-BF3C-506907885D4D/embed" title="Polycam capture viewer" style="height:100%;width:100%;max-height:720px;max-width:600px;min-height:500px;min-width:280px" frameborder="0"></iframe>
+</p>
+<p>
+  <iframe src="https://poly.cam/capture/E034C3A7-BEB4-468C-9D61-691D8B2BF6D0/embed" title="Polycam capture viewer" style="height:100%;width:100%;max-height:720px;max-width:600px;min-height:500px;min-width:280px" frameborder="0"></iframe>
+</p>
+<p>
+  Eli did an awesome job scanning my back, but faces are tough! My metling face is probably because there weren't enough images taken of my front -- either that or, I moved too much!
+</p>
+<p>
+  <iframe src="https://poly.cam/capture/D21FD662-3603-4275-8652-3D9CD8339A44/embed" title="Polycam capture viewer" style="height:100%;width:100%;max-height:720px;max-width:600px;min-height:500px;min-width:280px" frameborder="0"></iframe>
+</p>
 
 </div>
 </body>
