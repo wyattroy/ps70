@@ -3,6 +3,10 @@
 
 <title>PS70: Intro to Digital Fabrication </title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
 <link href="../style.css" rel="stylesheet">
 
 
@@ -20,37 +24,218 @@
 <body>
 <div class="textcontainer">
 
-<h3>Week 4: Microcontrollers</h3>
+<h3>Week 6: Inputs</h3>
 <p class="margin">   </p>
 <p>
-  <img src="images/ledhand.jpg" alt="led hand">
-</p>
-
-<p class="margin">   </p>
-
-
-<h4>Assignment X: Y</h4>
-<p>
-  Text
-</p>
-<p>
- More text
+  <img src="images/1compass.jpeg" alt="compass" style="width:30%">
 </p>
 
 <p class="margin">   </p>
 
-<h5>Levers and cams</h5>
+
+<h4>Assignment 1: Capacitive sensors</h4>
 <p>
-  Turning rotational movement into windshield-wiper movement was utterly unintuitive, and it's a game of millimeters. What I realized through experimentation with the peg board was that the most important variables were the distance between the center of the motor-wheel's axle and the lever-arm's axle -- and the lever-arm had to be at least 2x the diameter of the motor wheel. The Fan arm's axle position determines what angle swing the arm swings at. 
+  My family always gives me crap (read: love) for my obsession with making baking scales out of found objects. I didn't realize it was a thing I did until multiple of them called me out about it -- but I've made baking scales out of coat hangers and floss, floorboards and mugs of water, and just about none of them are sensitive enough to accurately measure flour, but that never stops me from trying. 
 </p>
 <p>
- <img src="images/motionexperiment.gif" alt="lever and cam">
- 
- 
+  <img src="images/0scale.jpg" alt="scale">
+  <p><em>My extremely kind sister giving my pivot-slab scale a go. Spoiler: the donut dough the scale measured out was VERY dry. But yummy!</em></p>
+</p>
+<p>
+  This week I wanted to make an ELECTRONIC scale using two sheets of copper as a capacitive sensor. Maybe I could make one sensitive enough to make bread!?!?! Turns out if you wire two sheets of copper to a microcontroller, you can measure the capacitance between them. The capacitance changes when you put something on top of them, and you can use that to measure weight.
+</p>
+<p>
+  <img src="images/0squeeze.gif" alt="sensor">
+  <p><em>Squeeze - squeeze - squeesqueesqueeze.</em></p>
+</p>
+<p>
+  The first challenge was stabilizing the scale. I used water to dynamically control weight, but the container would tip over if I just put it on top of the sponge sensor because it was too wobbly. 
+</p>
+<p>
+  <img src="images/6unstable.gif" alt="unstable">
+</p>
+<p>
+    I decided to use lego to make the scale's base because it's such a fast prototyping tool. There are a ton of little design features in here hiding in these colored blocks -- pieces that stabilize and center the container, a platform that offsets the sponge width so the container can be bigger than the platform without running into the stabilizing walls, and a jig to keep the copper sheets in place to maintain some level of consistency. 
+</p>
+<p>
+  <img src="images/7scaledesgin.JPG" alt="scale" style="width:30%">
+</p>
+<p>
+  After a bunch of experimentation, it was stable. 
+</p>
+<p>
+  <img src="images/8stable.gif" alt="stable">
+  <p><em>Rock solid!</em></p>
+</p>
+<p>
+  I used a *boring* scale to accurately measure the water (1ml = 1g) and then put the water in my awesome scale to measure the capacitance output. 
+</p>
+<p>
+  <img src="images/9water.JPG" alt="scale">
+  <p><em>If you can find it on Amazong, it's boring</em></p>
+</p>
+<p>
+  Quickly I realized that the sponge material I'd chosen resisted squeezing too much to my electronic readings to be useful. When I would add 100g of water, the scale would only change its outputs 0.5% -- which was a great first-principles way of understanding sensistivity, but not a great way to measure flour. I ended up using a piece of fluffy coat liner instead, which was much more compressable under the weight range we wanted our scale to handle.
+</p>
+<p>
+  <img src="images/10sponge.JPG" alt="sponge">
+  <p><em>Stiff sponge vs Fluffy coat liner </em></p>
+</p>
+<p>
+  I found and modified code to would measure the capacitance N times per second and print that to the serial monitor. 
+  </p>
+  <p>
+    <pre><code>long result;   //variable for the result of the tx_rx measurement.
+      int analog_pin = 32;
+      int tx_pin = 4;
+      int N_samples = 100;    // Number of samples to take.  Larger number slows it down, but reduces scatter.
+      int readDelay = 1000;
+      int startTime;
+      
+      void setup() {
+        pinMode(tx_pin, OUTPUT);      //Pin 4 provides the voltage step
+        Serial.begin(9600);
+        startTime = millis();
+      }
+      
+      void loop() { 
+        if (startTime + readDelay == millis()){
+          result = tx_rx() / N_samples;
+          Serial.println(result);
+          startTime = millis();
+        }
+      }
+      
+      
+      long tx_rx(){         
+        int read_high;
+        int read_low;
+        int diff;
+        long int sum;
+        
+        sum = 0;
+      
+        for (int i = 0; i < N_samples; i++){
+         digitalWrite(tx_pin,HIGH);              // Step the voltage high on conductor 1.
+         read_high = analogRead(analog_pin);     // Measure response of conductor 2.
+         delayMicroseconds(100);                 // Delay to reach steady state.
+         digitalWrite(tx_pin,LOW);               // Step the voltage to zero on conductor 1.
+         read_low = analogRead(analog_pin);      // Measure response of conductor 2.
+         diff = read_high - read_low;            // desired answer is the difference between high and low.
+         sum += diff;                            // Sums up N_samples of these measurements.
+       }
+        return sum;
+      }                                          // End of tx_rx function.
+  </code></pre>
+  </p>
+  <p>Then I averaged those readings even further to account for my own movement -- it turned out that the scale was affected much more by my own body position with regards to the scale, than the weight on top of it. I'm curious how *boring* scales get around this issue -- maybe by insulating the sensor from the environment. 
+</p>
+<p>
+  <img src="images/2weights.png" alt="weights">
+  <p><em>Weight data</em></p>
+</p>
+<p>
+  My container maxxed out at 1kg of water, but this didn't max out the scale -- even with the fluffy coat liner. So when plotting all my points to a graph to see the sensitivity curve, I simply pushed with my hand to see what the maximum reading would be (and I guestimated this as 3kg of force). As we can see, the curve isn't actually linear when the weight increases above a certain point, because as the sponge compresses it becomes more difficult to compress it further, making the capacitance change less and less.
+</p>
+<p>
+  <img src="images/2weightgraph.png" alt="graph">
+  <p><em>Capacitance vs Weight</em></p>
+</p>
+<p>
+  <h5>Next steps</h5>
+</p>
+<p>
+  To take this further, I'd need to remap my raw capacitange values to actual weights. And try the scale in different environments with other electronics and magnetic fields around. Ultimately, this scale proved approximately as useful as my past scales -- cool in theory, but primarily useful for showing just how cool a *boring* scale is :)
+</p>
+<p class="margin">   </p>
+
+<h5>Assignment 2: Compass Sensor</h5>
+<p>
+  This one was a doozy. I did not achieve what I had set out to do: make the MVP of my Pigeon Belt by using an eccentric motor as my output device, and using the compass chip as my input device. Instead, I spent most of a whole day battling with buggy readings from two different compass chips. Such is life! Huge shoutout to Bobby for somehow debugging my six+ hours of work in 10 minutes. Learning is HARD! But knowledge is power?!
+</p>
+<p>
+ <img src="images/2soldered.jpeg" alt="compass chip">
+ <p><em>I should've known it wouldn't be easy when the chip itself required soldering before being usable.</em></p>
+ </p>
+ <p>
+  I plugged the chip into my esp32 and went on a loooooong date with gpt to discuss the ten thousand things that weren't working. I won't go into it here because building is all about bugs and debugging, but eventually I got the chip to be readable. It was theoretically a huge win. 
+ </p>
+ <p>
+  <img src="images/3esp32.jpeg" alt="compass chip">
+  <p><em>It works! (sort of)</em></p>
+ </p>
+ <p>
+  But the data I was reading off of it was garbage. When I moved the sensor in a full 360 sphere, aiming all direcitons, its readouts were within a very narrow band of values. I wrote code to calibrate it by storing the max and min values, and spent two hours trying to figure out how to save the Arduino serial console text to a file (fail) because there was too much information there to copy paste. But ultimately I found myself in a fruitless loop.
+ </p>
+ <p>
+  <img src="images/5arduino.png" alt="compass fail">
+  <p><em>Notice how we're always aiming 78ish degrees north?</em></p>
+ </p>
+ <p>
+  I soldered a different compass chip together and got the same results. I bailed from GPT and tried to follow actual tutorials. I even went back to the amazon page that the chip was from to read the reviews and see if there were clues. Turns out that this chip is a QMC5883L, which is a buggier and less reliable version of Honeywell's HMC5883L, which is different enough that none of the tutorials I was following worked. 
+  <p>
+    <img src="images/12qmc.jpg" alt="compass">
+  </p>
+  <p><em>An extremely helpful schematic of the QMC5883L</em></p>
+  <p>
+  Eventually Bobby came over to me, grabbed one of my compasses, found a data sheet, and identified one variable that the chip outputs that I hadn't known about -- azimuth. This ended up being the key to getting the compass to work.
+ </p>
+ <p>
+  <img src="images/11compassX.jpeg" alt="compass">
+ </p>
+ <p>
+  <em>when lying flat, the chip doesn't seem to measure a full 360 degrees.</em>
+ </p>
+<p>
+  <img src="images/11compassY.jpeg" alt="compass">
+</p> 
+<p><em>But bizarrely, when you rotate the chip around its Z-axis, WHILE VERTICAL, it reads a full 360 degrees of compass points.</em></p>
+<p>
+  <h5>
+    Conclusion
+  </h5>
+</p>
+<p>
+  This was a tough week. I wanted to use an actual output device that was cooler than my serial console within Arduino, but I couldn't even get the compass to spit out "north" consistently. 
+</p>
+<p>Biggest success: during my debugging day, I didn't get stressed out for 3 whole hours. I just kept trying things. This is a massive improvement over the 3 minutes that it took me to panic at the beginning of the semester. 
+</p>
+<p>Biggest learning: I need to understand which resource (gpt/forums/datasheets) are going to be most helpful at which part of debugging. 
+</p>
+<p>
+  Biggest opportunity: if i can reframe my goals dynamically, it will help me manage my own expectations better. If something isn't working, I can throw my previous goals out the window and replace them with much simpler ones like "make a list of all the potential problems that MIGHT be causing the issue." And that can be a win. What I tend to do instead is "trajectorize" my progress -- if something is working, my brain automatically assumes everything else will now work too. This is almost exactly the opposite of what really happens. If something is working, that means I learned how to do it, and am now back at square one, about to start a new part of the problem that I am clueless about. This is a much more accurate way to think about it.
+</p>
+<p>
+  <h5>Next Steps</h5>
+</p>
+<p>
+  <ul>
+    <li>Try to get the compass to work when it's vertical, affixed to a belt buckle</li>
+    <li>Get the compass calibrated to north</li>
+    <li>Link the compass to an output like an LED whenever it aims north</li>
+    <li>Build an eccentric motor</li>
+    <li>Make the compass trigger the eccentric motor</li>
+    <li>Glue all of it to a belt</li>
+  </ul>
+</p>
+<p>
+  If I can do any of that before the MVP is due, we'll call it a win.
+</p>
+<p class="margin">   </p>
+
+<P>
+<h3>Assignment 3: CNC Prep</h3>
+</P>
+<p>
+  For this CNC assignment I want to cut out a map of my home, Sydney. I used <a href="http://touchterrain.geol.iastate.edu/main?trlat=-33.760993810043225&trlon=151.32762710839842&bllat=-33.92752013498495&bllon=151.18297378808595&scale=1.00&DEM_name=JAXA/ALOS/AW3D30/V2_2&tilewidth=100&printres=0.4&ntilesx=1&ntilesy=1&DEMresolution=53.55&basethick=5&zscale=4&fileformat=STLb&maptype=roadmap&gamma=1&transp=20&hsazi=315&hselev=45&map_lat=-33.8671598915676&map_lon=151.1962489345703&map_zoom=12" target="_blank">Touch Terrain</a>, a wonderful web app, to make this STL. 
+</p>
+<p>
+  <img src="images/14sydney.png" alt="terrain" style="width:30%">
+</p>
+
 
 <div class="flexrow">
-  <a id="btn" href="images/fanlampfiles.zip" download>Download all the Fusion files
-  </a>
+  <a id="btn" href="images/bondicnc2.zip" download>Download the CNC STL</a>
 </div>
 
 
