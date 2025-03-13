@@ -4,7 +4,7 @@ body {
     color: #000000;
     background-color: #ffffff;
     padding-top: 10px !important;
-  }
+}
 
 .textcontainer {
   padding: 5%;
@@ -99,4 +99,49 @@ code {
 
 .image-inline {
   margin-bottom: 15px;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.875rem; /* Smaller font size for mobile devices */
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    h5 {
+        font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 769px) {
+    body {
+        font-size: 1rem; /* Default font size for larger screens */
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
 }
