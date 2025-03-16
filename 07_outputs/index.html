@@ -3,6 +3,10 @@
 
 <title>PS70: Intro to Digital Fabrication </title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
 <link href="../style.css" rel="stylesheet">
 
 
@@ -23,7 +27,7 @@
 <h3>Week 7: Minimum Viable Product</h3>
 <p class="margin">   </p>
 <p>
-  <img src="images/pigeonbeltmvp2.jpg" alt="led hand">
+  <img src="images/wearingbelt.gif" alt="next steps">
 </p>
 
 <p class="margin">   </p>
@@ -85,14 +89,89 @@
 <p>
   I used timers to write the below code that turns on the motor whenever the compass is facing north. It almost works, but there are some bugs to work out -- namely, the motor should buzz for a constant amount of time whenever the compass first faces north, even if the compass turns away from north; and it shouldn't buzz again for another X number of seconds, so it doesn't get annoying.
 </p>
- 
-<p class="margin">   </p>
+<p>
+  <pre>
+    <code>
+      #include <Wire.h>
+      #include <MechaQMC5883.h>
+      
+      MechaQMC5883 qmc;
+      int north = 0;
+      int tolerance = 5;
+      int vibrationDuration = 100;  // How long the motor should stay on (ms)
+      unsigned long vibrationStartTime = 0;  // Start time of vibration
+      bool vibrating = false;  // Motor state
+      unsigned long serialPrintTime = 0;
+      int serialDelay = 1000;
+      
+      // Motor control pins
+      const int A1A = 25;  
+      const int A1B = 26; 
+      
+      void setup() {
+        Serial.begin(115200);
+      
+        // Set up compass
+        Wire.begin(21, 22);  // Set SDA, SCL pins here
+        qmc.init(); // Initialize QMC5883L
+        Serial.println("QMC5883L (HW-246) Ready!");
+      
+        // Set up motor pins
+        pinMode(A1A, OUTPUT);
+        pinMode(A1B, OUTPUT);
+      
+        // Turn off motor initially
+        digitalWrite(A1A, LOW);
+        digitalWrite(A1B, LOW);
+      }
+      
+      void loop() {
+        int x, y, z, a;
+        qmc.read(&x, &y, &z, &a);
+      
+        unsigned long currentTime = millis();
+      
+        // ✅ Start vibrating when pointing north (if not already vibrating)
+        if (!vibrating && (a > 360 - tolerance || a < 0 + tolerance)) {
+          Serial.println("NORTH!");
+      
+          vibrating = true;
+          vibrationStartTime = currentTime;
+      
+          // Turn motor ON
+          digitalWrite(A1A, HIGH);   
+          digitalWrite(A1B, LOW);
+        }
+      
+        // ✅ Turn off motor when vibration duration has passed
+        if (vibrating && (currentTime - vibrationStartTime >= vibrationDuration)) {
+          vibrating = false;
+      
+          // Turn motor OFF
+          digitalWrite(A1A, LOW);
+          digitalWrite(A1B, LOW);
+      
+          Serial.println("Motor OFF");
+        }
+      
+        // Optional: Add a small delay to avoid spamming serial output
+        delay(10);
+      
+        if (millis() - serialPrintTime > serialDelay){
+          Serial.print("Heading: ");
+          Serial.println(a);
+          serialPrintTime = millis();
+        }
+      }
+    </code>
+  </pre>
+</p>
 
 <p>
   <h3>Next Steps</h3>
 </p>
 <p>
-  <img src="images/sketch.jpeg" alt="next steps">
+  <img src="images/sketch.jpeg" alt="next steps" style="width:40%;">
 </p>
 <p>
   <b>1. Improve compass accuracy.</b>
@@ -125,7 +204,7 @@
   Lastly, I actually want this to be useful. This has been an idea of mine since I was a kid -- I want to wear it as I explore a new city for a day or two, and see if it actually does give me a sixth sense of direction. Already from using the MVP, I've modified the design: my original idea called for a chain of motors all around the belt that always buzz in the direction of north -- but this actually sounds quite annoying. I think that a more elegant solution would be subtle buzz whenever the user is facing north.
 </p>
 <p>
-  <img src="images/wearingbelt.gif" alt="next steps">
+  <img src="images/pigeonbeltmvp2.jpg" alt="next steps">
 </p>
 
 
