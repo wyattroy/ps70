@@ -20,33 +20,90 @@
 <body>
 <div class="textcontainer">
 
-<h3>Week 4: Microcontrollers</h3>
+<h3>Week 7: Minimum Viable Product</h3>
 <p class="margin">   </p>
 <p>
-  <img src="images/ledhand.jpg" alt="led hand">
-</p>
-
-<p class="margin">   </p>
-
-
-<h4>Assignment X: Y</h4>
-<p>
-  Text
-</p>
-<p>
- More text
+  <img src="images/pigeonbeltmvp2.jpg" alt="led hand">
 </p>
 
 <p class="margin">   </p>
 
-<h5>Levers and cams</h5>
+
+<h4>Pigeon Belt is ALIVE!</h4>
 <p>
-  Turning rotational movement into windshield-wiper movement was utterly unintuitive, and it's a game of millimeters. What I realized through experimentation with the peg board was that the most important variables were the distance between the center of the motor-wheel's axle and the lever-arm's axle -- and the lever-arm had to be at least 2x the diameter of the motor wheel. The Fan arm's axle position determines what angle swing the arm swings at. 
+  It looks a little crazy, and it'll have to be shrunk down much more, but the pigeon belt MVP is here! It has a compass, which is read by the esp32 and knows where north is, and whenever the belt is pointing within 5 degrees of north it turns on an eccentric motor. Stunning how much had to come together for this to work.
 </p>
 <p>
- <img src="images/motionexperiment.gif" alt="lever and cam">
+ <img src="images/pigeonbeltmvp1.jpg" alt="schematic">
+</p>
+
+<p class="margin">   </p>
+
+<h3>Biggest Accomplishments</h3>
+<p>
+  <b>Reading the compass</b>
+</p>
+<p>
+  My theory with the compass is that the wires in a breadboard interfere with the Earth's magnetic field according to the right hand rule from high school physics. No one online has mentioned it, but this could explain the bizarre behavior of the compass in only picking up north/south changes while rotating around the north-south meridian (which makes zero sense -- that is the one orientation around which the readings should remain constant the whole time).
+<p>
+ <img src="images/righthandrule.jpg" alt="right hand rule">
+ </p>
+
+
+<p>
+  <b>Getting the motor to turn on</b>
+</p>
+<p>
+  The motor can't be hooked up directly to an esp32 pin because it draws too much current. So I used a different chip to control the motor, seen hanging off to the right in the above photo. 
+</p>
+<p>
+  <b>Making the motor eccentric</b>
+</p>
+<p>
+  I designed a simple circle with an offset hole in Rhino and sent it straight to the laser cutter. This digital fabrication workflow is so powerful and quick when it works right. The wooden circle creates centripedal force as it rotates on its off-center axis, vibrating the whole motor.  
+</p>
+<p>
+  <b>Writing vibration code</b>
+</p>
+<p>
+  I used timers to write the below code that turns on the motor whenever the compass is facing north. It almost works, but there are some bugs to work out -- namely, the motor should buzz for a constant amount of time whenever the compass first faces north, even if the compass turns away from north; and it shouldn't buzz again for another X number of seconds, so it doesn't get annoying.
+</p>
  
- 
+<p class="margin">   </p>
+
+<p>
+  <h3>Next Steps</h3>
+</p>
+<p>
+  <b>1. Improve compass accuracy.</b>
+</p>
+<p>
+  The compass data somehow needs to be augmented with tilt data so that the azimuth readings are correct no matter how tilted the compass is. Currently, the compass only vibrates erratically when facing north and I think the issue is tilt.
+</p>
+<p>
+  <b>2. Shrink it down.</b>
+</p>
+<p>
+  This uses a full-sized esp32 attached to two breadboards. Ideally, all the components will fit inside of a belt buckle, and the buzzing motor can be offset on the side (so, as one of my friends said, "it's not always vibrating your bladder.")
+</p>
+<p>
+  <b>3. Add a battery.</b>
+</p>
+<p>
+  This currently is powered by a USB cable to a computer. Ideally the whole thing can be powered independently by a rechargeable battery with an on/off switch.
+</p>
+<p>
+  <b>4. Design and manufacture housing</b>
+</p>
+<p>
+  At which point, I'll have to design housing for all of the components -- probably in the form of a 3D-printed belt buckle, and some kind of leather belt with a tiny motor off to the side.
+</p>
+<p>
+  <b>5. User test</b>
+</p>
+<p>
+  Lastly, I actually want this to be useful. This has been an idea of mine since I was a kid -- I want to wear it as I explore a new city for a day or two, and see if it actually does give me a sixth sense of direction. Already from using the MVP, I've modified the design: my original idea called for a chain of motors all around the belt that always buzz in the direction of north -- but this actually sounds quite annoying. I think that a more elegant solution would be subtle buzz whenever the user is facing north.
+</p>
 
 <div class="flexrow">
   <a id="btn" href="images/fanlampfiles.zip" download>Download all the Fusion files
