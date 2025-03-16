@@ -34,8 +34,18 @@
   It looks a little crazy, and it'll have to be shrunk down much more, but the pigeon belt MVP is here! It has a compass, which is read by the esp32 and knows where north is, and whenever the belt is pointing within 5 degrees of north it turns on an eccentric motor. Stunning how much had to come together for this to work.
 </p>
 <p>
- <img src="images/pigeonbeltmvp1.jpg" alt="schematic">
+  <em>How I designed it</em>
 </p>
+<p>
+ <img src="images/schematic.jpeg" alt="schematic">
+</p>
+<p>
+  <em>How it turned out</em>
+</p>
+
+<p>
+  <img src="images/pigeonbeltmvp1.jpg" alt="schematic">
+ </p>
 
 <p class="margin">   </p>
 
@@ -48,14 +58,21 @@
 <p>
  <img src="images/righthandrule.jpg" alt="right hand rule">
  </p>
+ <p>
+  <em>Notice how the compass is floating in the air far from the pesky breadboard</em>
+ </p>
 
 
 <p>
   <b>Getting the motor to turn on</b>
 </p>
 <p>
-  The motor can't be hooked up directly to an esp32 pin because it draws too much current. So I used a different chip to control the motor, seen hanging off to the right in the above photo. 
+  The motor can't be hooked up directly to an esp32 pin because it draws too much current. So I used a different chip to control the motor, with a glowing red light on the left, below. 
 </p>
+<p>
+  <img src="images/motoron.gif" alt="motor control">
+</p>
+
 <p>
   <b>Making the motor eccentric</b>
 </p>
@@ -73,6 +90,9 @@
 
 <p>
   <h3>Next Steps</h3>
+</p>
+<p>
+  <img src="images/sketch.jpeg" alt="next steps">
 </p>
 <p>
   <b>1. Improve compass accuracy.</b>
@@ -104,11 +124,9 @@
 <p>
   Lastly, I actually want this to be useful. This has been an idea of mine since I was a kid -- I want to wear it as I explore a new city for a day or two, and see if it actually does give me a sixth sense of direction. Already from using the MVP, I've modified the design: my original idea called for a chain of motors all around the belt that always buzz in the direction of north -- but this actually sounds quite annoying. I think that a more elegant solution would be subtle buzz whenever the user is facing north.
 </p>
-
-<div class="flexrow">
-  <a id="btn" href="images/fanlampfiles.zip" download>Download all the Fusion files
-  </a>
-</div>
+<p>
+  <img src="images/wearingbelt.gif" alt="next steps">
+</p>
 
 
 </div>
