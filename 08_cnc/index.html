@@ -20,36 +20,145 @@
 <body>
 <div class="textcontainer">
 
-<h3>Week 4: Microcontrollers</h3>
+<h3>Week 8: CNC</h3>
 <p class="margin">   </p>
 <p>
-  <img src="images/ledhand.jpg" alt="led hand">
-</p>
-
-<p class="margin">   </p>
-
-
-<h4>Assignment X: Y</h4>
-<p>
-  Text
-</p>
-<p>
- More text
+  <img src="images/12-stamp-hero.jpeg" alt="molded stamp">
 </p>
 
 <p class="margin">   </p>
 
-<h5>Levers and cams</h5>
+
+<h4>Windowsill Stamp</h4>
 <p>
-  Turning rotational movement into windshield-wiper movement was utterly unintuitive, and it's a game of millimeters. What I realized through experimentation with the peg board was that the most important variables were the distance between the center of the motor-wheel's axle and the lever-arm's axle -- and the lever-arm had to be at least 2x the diameter of the motor wheel. The Fan arm's axle position determines what angle swing the arm swings at. 
+  My partner is a pastry chef, and she runs a small business called Windowsill Bakery. Yes, it is awesome to have a pastry chef partner. 
 </p>
 <p>
- <img src="images/motionexperiment.gif" alt="lever and cam">
- 
+  <img src="images/1-windowsillcakes.png" alt="windowsill cakes">
+</p>
+<p>
+  I wanted to make her a stamp of her hand-drawn logo to put on her cake boxes for all of her custom orders. First I turned all of the logo's lines into paths using photoshop. 
+  </p>
+  <p>
+    <img src="images/2-windowsill-logo.jpg" alt="logo design" style="width:50%">
+   </p>
+   <p>
+    <em>Logo in black and white</em>
+   </p>
+   <p>
+    <img src="images/3-windowsill-logo-paths.png" alt="logo paths" style="width:50%">
+   </p>
+   <p>
+    <em>Logo as paths</em>
+   </p>
+   <p>
+  My idea was to bring these paths into Blender and extrude them; but for a variety of reasons using paths was insanely complicated and very manual -- so I found a way to displace the surface of a plane according to the brightness of an image, and fed in the original logo. I planned to cut this design out of a block of wax, then pour silicone into it to create a stamp. So I built a frame around the logo plane to hold the "background" silicone.
+</p>
+<p>
+ <img src="images/4-windowsill-blender.png" alt="blender design">
+</p>
+<p>
+  CNCing took under an hour because I used two different sized drill bits -- a 1/8th inch to clear large amounts of material in the "rough" cut, and a 1/16th inch to do the letters. I had to trick the software into allowing me to use the 1/16th bit by pretending that it was a 1/32nd bit, or else it wouldn't carve into the letters because those areas were too narrow.
+</p>
+<p>
+ <img src="images/5-blowdust.gif" alt="cncing the stamp">
+</p>
+<p>
+  The final mold looked great, to my eyes at least! There were a couple areas that were too thin for the CNC to cut out, like at the top of the n and the b, so I used a scalpel to remove them manually.
+</p>
+<p>
+ <img src="images/6-wax-mold.jpeg" alt="wax mold" style="width:50%">
+</p>
+<p>
+  I measured equal parts of the A and B liquids for a firm silicone material and poured it into the mold, tapping it hard to remove air bubbles which (from experience) always ruin molds like this with fine edges and sharp corners.  I set the mold aside for 16 hours and let it cure. That's partially a lie -- of course I tested it after just an hour and got silicone all over my finger because I'm incredibly impatient.
+</p>
+<p>
+ <img src="images/7-silicone.jpeg" alt="silicone" style="width:50%">
+</p>
+<p>
+The mold set beautifully, and was easy to remove from the wax. The details transferred perfectly -- maybe even too perfectly, as we'll see later.
+</p>
+<p>
+ <img src="images/8-set-mold.jpeg" alt="peeling off the silicone">
+</p>
+<p>
+I had to trim off the frame of the stamp, which was a biproduct of the way the CNC software cut out my design. 
+</p>
+<p>
+ <img src="images/9-stamp-rubber.jpeg" alt="stamp rubber">
+</p>
+<p>
+The first test stamp worked great! At first glance, at least -- on closer inspection, the CNC left little round artifacts all in throughout the mold! You can see the mark left by the 1/16th inch bit. I may try to gently sand those off the silicone with a very find sandpaper, but I'm not sure that this material can be sanded very effectively. 
+</p>
+<p>
+  <img src="images/10-stamp-used.jpeg" alt="final stamp">
+
+</p>
+<p>
+When you look very closely at the mold, you can see where the CNC made these tiny marks -- which are almost invisible to the eye, and only matter in the context of making a stamp which needs a completely flat plane as its marking surface.
+</p>
+<p>
+  <img src="images/10-stamp-result.jpeg" alt="stamp result"style="width:50%">
+</p>
+<p>
+  <img src="images/11-cnc-artifacts.jpeg" alt="cnc artifacts">
+</p>
+<p>
+  This was an exciting project -- I'd been wanting to make a stamp for Windowsill for months but couldn't figure out the right workflow to do it!
+  </p>
+
+
+<p class="margin">   </p>
+
+<h4>Ojai Cheese Board</h4>
+<p>
+  <img src="images/b6-ojai-hero.jpeg" alt="cheese board hero image">
+</p>
+<p>
+  While we're making gifts for loved ones, I thought it would be fun to make a cheese board for my parents, who live in Ojai, California. They live on the edge of a mountain and the shape of the valley would be perfect for resting a little block of brie on. 
+</p>
+<p>
+ <img src="images/b1-old-map.jpg" alt="old map">
+ <p> 
+  I used an incredible online tool, <a href="https://touchterrain.geol.iastate.edu/main" target="_blank">Touch Terrain</a>, to create an STL of their area. <a href="http://touchterrain.geol.iastate.edu/main?trlat=34.47390235755185&trlon=-119.21331209944371&bllat=34.4414419628028&bllon=-119.27284998701694&scale=1.00&DEM_name=USGS/3DEP/10m&tilewidth=200&printres=0.4&ntilesx=1&ntilesy=1&DEMresolution=21.88&basethick=5&zscale=1.0&fileformat=STLb&maptype=roadmap&gamma=1&transp=20&hsazi=315&hselev=45&map_lat=34.45690580679018&map_lon=-119.24621449842046&map_zoom=13" target="_blank">Here is the link to my exact map</a>, in case you want to edit it yourself.
+ </p>
+ <p>
+  <img src="images/b1-3D-ojai.png" alt="touch terrain map">
+ </p>
+ <p>
+  I used the ShopBot CNC to mill this one because it's bigger. My cheese board is actually quite small, because I realized that the mountains in Ojai are so tall that in order to keep them to scale while making the cheese board larger, I'd need to start with a significantly thicker block of wood. 
+  </p>
+  <p>
+    <img src="images/b2-woodcnc.gif" alt="cnc cutting the cheese board">
+  </p>
+  <p>
+    The CNC took under 30 minutes because this thing <em>rips</em>. But the downside is that it's incredible imprecise at that speed (and bit size) so there were a bunch of artifacts. If they had been oriented the other direction, they could have been read as terrain lines; but because of the way the tool path was designed, they just look jagged. 
+  </p>
+  <p>
+    <img src="images/b3-cnc-grooves.jpeg" alt="cheese board result">
+  </p>
+  <p>
+    I tried sanding it down manually, but it's difficult to sand inside the mountain's lumps without loosing all of the detail -- so ultimately I left it as is. 
+  </p>
+  <p>
+    <img src="images/b4-cnc-sanded.jpeg" alt="final cheese board">
+  </p>
+  <p>
+    I bought some butcher block conditioner and applied it to the wood. This is oak, which isn't an ideal wood for this purpose because it has a large grain, but it's better than pine, which was the only other option at Home Depot. Note to self: lumber yards close early on fridays, but next time it's worth waiting until they reopen.
+  </p>
+  <p>
+    <img src="images/b5-ojai-waxed.jpeg" alt="finished cheese board">
+  </p>
+  <p>
+    For the next iteration, I want to make this bigger, and use two different bits for the rough pass and final pass, to get smoother detail in the mountains. This is a sweet first prototype, though!
+  </p>
+  <p>
+    <img src="images/b7-cheeseboardwaxed.gif" alt="final cheese board">
+  </p>
  
 
 <div class="flexrow">
-  <a id="btn" href="images/fanlampfiles.zip" download>Download all the Fusion files
+  <a id="btn" href="images/x-3d-stamp-and-terrrain.zip" download>Download all the 3D files
   </a>
 </div>
 
