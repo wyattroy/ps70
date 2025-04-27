@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>PS70: Intro to Digital Fabrication </title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../style.css" rel="stylesheet">
+
+
+<nav class="navbar navbar-expand-sm navbar-dark">
+  <div style="align-items: center; justify-content: center;" class="container-fluid">
+    <div class="navbar-nav">
+    
+      <h4><a class="nav-link" href="../index.html">Wyatt's PS70</a></h4>
+      <h4><a class="nav-link" href="../about.html">About</a></h4>
+      
+    </div>
+  </div>
+</nav>
+
+<body>
+<div class="textcontainer">
+
+<h3>Week 12: Project Integration</h3>
+<p class="margin">   </p>
+<p>
+  <img src="images/pigeonbeltbuckle1.gif" alt="buckle design">
+</p>
+
+<p class="margin">   </p>
+
+
+<h4>Assignment: Integrate the invetion</h4>
+<p>
+  This part of the project is relatively straight forward: make a comically large belt buckle (read: box) to house the components. My first deign gives me lots of space to play with -- almost a full centimeter of depth, and 10cm x 60cm of surface area. Inside this box will go the:
+<p>
+ <ul>
+  <li>ESP32 Xiao, because it's smaller</li>
+  <li>A tiny button-sized eccentric motor</li>
+  <li>A transistor to turn it on and off</li>
+  <li>The Bosch compass/accelerometer module</li>
+  <li>A li-po battery</li>
+ </ul>
+</p>
+
+<p>
+  I'll also need to make an on/off switch, as well as a "calibrate" button. The latter will be a little tricky, as I need to make sure that the ESP32 is in a state where it can read the compass and calibrate it. 
+</p>
+ 
+<h4>Printing the case</h4>
+<p>
+  This was a tricky one to print because it's flat but cantilevered -- so I actually printed it standing upright (as if it's being worn on a body) so that I wouldn't have to clear out support material from the inner cavity, which would be brutal.
+</p>
+
+<h4>Improvements</h4>
+<p>
+  Stunningly, the tiny notches I made to hold the buckle face on totally worked! They probably need to be a bit bigger in order to be more robust, and the holes in the buckle back need to be deeper too; but the design works well for this iteration. The final design can simply have those notches on all sides, not just the top and bottom, because I won't need to be accessing all the components so frequently. The next version also needs holes cut for the on/off switch, the calibrate button, and a charger. I have no idea how to integrate a li-po charger into this, because I hear it's tricky, but everything's tricky until you figure it out. Onwards!
+</p>
+
+<div class="flexrow">
+  <a id="btn" href="images/fanlampfiles.zip" download>Download all the Fusion files
+  </a>
+</div>
+
+
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+
+</html>
