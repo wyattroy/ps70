@@ -9,6 +9,7 @@ body {
     margin: 0 auto;
 }
 
+
 .textcontainer {
   padding: 5%;
 }
@@ -105,46 +106,46 @@ code {
 }
 
 /* Responsive font sizes */
-@media (max-width: 768px) {
-    body {
-        font-size: 0.875rem; /* Smaller font size for mobile devices */
-    }
+@media (max-width: 600px) {
+  body {
+      font-size: 1.25rem;
+  }
 
-    p {
-        font-size: 0.875rem;
-    }
+  p {
+      font-size: 1.25rem;
+  }
 
-    h3 {
-        font-size: 1.25rem;
-    }
+  h3 {
+      font-size: 1.75rem;
+  }
 
-    h4 {
-        font-size: 1rem;
-    }
+  h4 {
+      font-size: 1.5rem;
+  }
 
-    h5 {
-        font-size: 0.875rem;
-    }
+  h5 {
+      font-size: 1.25rem;
+  }
 }
 
-@media (min-width: 769px) {
-    body {
-        font-size: 1rem; /* Default font size for larger screens */
-    }
+@media (min-width: 601px) and (max-width: 768px) {
+  body {
+      font-size: 0.875rem;
+  }
 
-    p {
-        font-size: 1rem;
-    }
+  p {
+      font-size: 0.875rem;
+  }
 
-    h3 {
-        font-size: 1.5rem;
-    }
+  h3 {
+      font-size: 1.25rem;
+  }
 
-    h4 {
-        font-size: 1.25rem;
-    }
+  h4 {
+      font-size: 1rem;
+  }
 
-    h5 {
-        font-size: 1rem;
-    }
+  h5 {
+      font-size: 0.875rem;
+  }
 }
