@@ -1,14 +1,14 @@
 body {
-    font: 1rem "Trebuchet MS", Arial, sans-serif;
-    line-height: 1.8;
-    color: #000000;
-    background-color: #ffffff;
-    padding:20px;
-    max-width: 800px;
-    display: block;
-    margin: 0 auto;
+  font: 1rem "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.8;
+  color: #000000;
+  background-color: #ffffff;
+  padding: 20px;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
-
 
 .textcontainer {
   padding: 5%;
@@ -19,7 +19,8 @@ p {
 }
 
 img {
-  max-width: 75%;
+  max-width: 100%;
+  height: auto;
 }
 
 .margin {
@@ -32,7 +33,7 @@ a {
 
 .container-fluid {
   padding: 20px;
-  /*padding-bottom: 70px;*/
+  box-sizing: border-box;
 }
 
 nav {
@@ -44,6 +45,7 @@ nav {
 .navbar-nav {
   color: #000000 !important;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   gap: 20px;
 }
@@ -52,7 +54,7 @@ nav {
   color: #000000 !important;
 }
 
-.nav-title{
+.nav-title {
   padding: 10px;
   margin: 0px;
   color: #000000;
@@ -63,7 +65,6 @@ nav {
   color: #000000;
 }
 
-
 #btn {
   padding: 10px 30px;
   background-color: #2177c3;
@@ -72,16 +73,19 @@ nav {
 
 .row {
   margin: auto;
+  flex-wrap: wrap;
 }
 
 .flexrow {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .center-row {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 code {
@@ -105,47 +109,61 @@ code {
   margin-bottom: 15px;
 }
 
-/* Responsive font sizes */
+/* Responsive font sizes and layout */
 @media (max-width: 600px) {
   body {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
+    padding: 10px;
+    max-width: 100%;
   }
 
   p {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
   }
 
   h3 {
-      font-size: 1.75rem;
+    font-size: 1.75rem;
   }
 
   h4 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   h5 {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .flexrow,
+  .center-row {
+    flex-direction: column;
+    align-items: center;
   }
 }
-
+/* 
 @media (min-width: 601px) and (max-width: 768px) {
   body {
-      font-size: 0.875rem;
+    font-size: 0.875rem;
+    padding: 15px;
   }
 
   p {
-      font-size: 0.875rem;
+    font-size: 0.875rem;
   }
 
   h3 {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
   }
 
   h4 {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 
   h5 {
-      font-size: 0.875rem;
+    font-size: 0.875rem;
   }
-}
+} */
