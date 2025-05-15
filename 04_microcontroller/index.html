@@ -1,59 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<title>PS70: Intro to Digital Fabrication </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script> 
+<head>
+  <title>PS70: Intro to Digital Fabrication</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
-<nav class="navbar navbar-expand-sm navbar-dark">
-  <div style="align-items: center; justify-content: center;" class="container-fluid">
-    <div class="navbar-nav">
-    
-      <h4><a class="nav-link" href="../index.html">Wyatt's PS70</a></h4>
-      <h4><a class="nav-link" href="../about.html">About</a></h4>
-      
-    </div>
-  </div>
-</nav>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
 
 <body>
-<div class="textcontainer">
 
-<h3>Week 4: Microcontrollers</h3>
-<p class="margin">   </p>
-<p>
-  <img src="images/ledhand.jpg" alt="led hand">
-</p>
+  <nav class="navbar navbar-expand-sm navbar-dark">
+    <div style="align-items: center; justify-content: center;" class="container-fluid">
+      <div class="navbar-nav">
+        <h4><a class="nav-link" href="../index.html">Wyatt's PS70</a></h4>
+      </div>
+      <div>
+        <h4><a class="nav-link" href="../about.html">About</a></h4>
+      </div>
+    </div>
+  </nav>
 
-<p class="margin">   </p>
 
 
-<h4>Assignment: Make Arduino Do Something</h4>
-<p>
-  This week featured a staggering series of undiagnosable failures. Here is an absurdly simple circuit that I spent four (4!) hours trying -- unsuccessfully -- to get to work.
-</p>
-<p>
-  <img src="images/failbutton.gif" alt="fail button">
-</p>
-<p>
-  Behold my submission to this week's assignment: a non-functional button.
-  </p>
-  <p>
-    <img src="images/failcircuittop.jpg" alt="fail button">
-  </p>
-  <p>
-  I used the arduino reference manual, PS70 wesbite, gpt, and extensive googling to try and figure out why my serial monitor was either receiving only garbarge signals, or zeros. 
-</p>
-<p>
-  <img src="images/arduinoide.png" alt="arduino">
-</p>
-<p>
-  My code: <br/>
-  <pre><code>#define switchPin 4 // I also tried 5, 14, and 15
+
+  <div class="textcontainer">
+
+    <h3>Week 4: Microcontrollers</h3>
+    <p class="margin"> </p>
+    <p>
+      <img src="images/ledhand.jpg" alt="led hand">
+    </p>
+
+    <p class="margin"> </p>
+
+
+    <h4>Assignment: Make Arduino Do Something</h4>
+    <p>
+      This week featured a staggering series of undiagnosable failures. Here is an absurdly simple circuit that I
+      spent four (4!) hours trying -- unsuccessfully -- to get to work.
+    </p>
+    <p>
+      <img src="images/failbutton.gif" alt="fail button">
+    </p>
+    <p>
+      Behold my submission to this week's assignment: a non-functional button.
+    </p>
+    <p>
+      <img src="images/failcircuittop.jpg" alt="fail button">
+    </p>
+    <p>
+      I used the arduino reference manual, PS70 wesbite, gpt, and extensive googling to try and figure out why my
+      serial monitor was either receiving only garbarge signals, or zeros.
+    </p>
+    <p>
+      <img src="images/arduinoide.png" alt="arduino">
+    </p>
+    <p>
+      My code: <br />
+    <pre><code>#define switchPin 4 // I also tried 5, 14, and 15
 
   void setup() {
     Serial.begin(115200);
@@ -66,100 +77,108 @@
     delay(200); // So many garbage values were flooding the terminal so I introduced this delay
   }
 </code></pre>
-</p>
-<p>
-  Unfortunately, literally all I could figure out how to get this thing to do was turn on a green LED using the always-on power supply.
-</p>
-<p>
-  <img src="images/greenled.jpg" alt="led">
-</p>
-<p>
-  Hardware is hard.
-</p>
-<p class="margin">   </p>
+    </p>
+    <p>
+      Unfortunately, literally all I could figure out how to get this thing to do was turn on a green LED using the
+      always-on power supply.
+    </p>
+    <p>
+      <img src="images/greenled.jpg" alt="led">
+    </p>
+    <p>
+      Hardware is hard.
+    </p>
+    <p class="margin"> </p>
 
-<h5>LED circuitry</h5>
-<p>
-  I tried to do something simple next - just get 4 LEDs to work in a circuit.
-</p>
-<p>
-  <img src="images/breadboardled1.jpg" alt="led array">
-</P>
-<p>
-  This actually worked! Notice how there was no microcontroller to make things difficult.
-</p>
-<p>
-  <img src="images/breadboardled2.jpg" alt="led array">
-</p>
-<p class="margin">   </p>
+    <h5>LED circuitry</h5>
+    <p>
+      I tried to do something simple next - just get 4 LEDs to work in a circuit.
+    </p>
+    <p>
+      <img src="images/breadboardled1.jpg" alt="led array">
+    </P>
+    <p>
+      This actually worked! Notice how there was no microcontroller to make things difficult.
+    </p>
+    <p>
+      <img src="images/breadboardled2.jpg" alt="led array">
+    </p>
+    <p class="margin"> </p>
 
-<h5>Soldering</h5>
-<p>
-  Given that my electronics were such a staggering fail, I decided to practice a core skill 
-  that would be useful in future projects -- soldering. 
-  
-</p>
-<p>
-  <img src="images/circuit.png" alt="circuit diagram">
-</p>
-<p>
-  I made a 4-LED array of white lights, 
-  wired in parallel, each with its own resistor attached to it. 
-  </p>
-  <p>
-    <img src="images/ledhand.jpg" alt="led hand">
-  </p>
-  <p>
-  And I used this to upgrade my lamp from last week, wiring it with switches for both the lights and fan mechanism so that both can be turned on independently.
-</p>
-<p>
-  <img src="images/fanleds.jpeg" alt="fan leds">
-</p>
-<p>
-  Then I upgraded all of the components, including designing and lasering a new gear for the quieter motor, and soldering everything together.
-</p>
-<p>
-  <img src="images/fanbackswitches.jpeg" alt="fan lamp">
-</p>
-<p class="margin">   </p>
+    <h5>Soldering</h5>
+    <p>
+      Given that my electronics were such a staggering fail, I decided to practice a core skill
+      that would be useful in future projects -- soldering.
 
-<h5>
-  Conclusion
-</h5>
-<p>
-  This week was rough. Microcontrollers are so fickle -- it was unclear what was going wrong, and even more frustrating, it was unclear how to diagnose what might be going wrong -- especially when the issues may be physical, or may be a busted board, or a loose wire. After you try 100 different things and none work, it may be time to take a breath (or get a new esp32).
-</p>
+    </p>
+    <p>
+      <img src="images/circuit.png" alt="circuit diagram">
+    </p>
+    <p>
+      I made a 4-LED array of white lights,
+      wired in parallel, each with its own resistor attached to it.
+    </p>
+    <p>
+      <img src="images/ledhand.jpg" alt="led hand">
+    </p>
+    <p>
+      And I used this to upgrade my lamp from last week, wiring it with switches for both the lights and fan mechanism
+      so that both can be turned on independently.
+    </p>
+    <p>
+      <img src="images/fanleds.jpeg" alt="fan leds">
+    </p>
+    <p>
+      Then I upgraded all of the components, including designing and lasering a new gear for the quieter motor, and
+      soldering everything together.
+    </p>
+    <p>
+      <img src="images/fanbackswitches.jpeg" alt="fan lamp">
+    </p>
+    <p class="margin"> </p>
 
-<p class="margin"></p>
-</p>
+    <h5>
+      Conclusion
+    </h5>
+    <p>
+      This week was rough. Microcontrollers are so fickle -- it was unclear what was going wrong, and even more
+      frustrating, it was unclear how to diagnose what might be going wrong -- especially when the issues may be
+      physical, or may be a busted board, or a loose wire. After you try 100 different things and none work, it may be
+      time to take a breath (or get a new esp32).
+    </p>
 
-<h5>UPDATE</h5>
-<p>
-  Kassia gave me a different ESP32 which actually works.<br/>
-  Joey helped me figure out how to get it set up in the Arduino IDE. <br />
-  Bobby assured me that bad days happen. And so do good days. And gave me a solid dap. <br />
-</p>
-<p>
-  And now... IT WORKS!
-</p>
-<p>
-  <img src="images/ledworking.gif" alt="It's Alive">
-</p>
-<p>
-  My most important learning today: working alone is best done with a base level competency. Learning alone is brutal. Huge shoutout to this class and teaching staff for all of the support. You make making fun.
-</p>
-<p class="margin"></p>
+    <p class="margin"></p>
+    </p>
 
-<h5>Programming it</h5>
-<p>
-  As a nod towards my key learning from this project -- namely, how important it is to call for help --  I made the LED flash "SOS" in morse code when you push the button. 
-</p>
-<p>
-  <img src="images/sos.gif" alt="sos">
-</p>
-<p>
-  My code:<br/>
-  <pre><code>
+    <h5>UPDATE</h5>
+    <p>
+      Kassia gave me a different ESP32 which actually works.<br />
+      Joey helped me figure out how to get it set up in the Arduino IDE. <br />
+      Bobby assured me that bad days happen. And so do good days. And gave me a solid dap. <br />
+    </p>
+    <p>
+      And now... IT WORKS!
+    </p>
+    <p>
+      <img src="images/ledworking.gif" alt="It's Alive">
+    </p>
+    <p>
+      My most important learning today: working alone is best done with a base level competency. Learning alone is
+      brutal. Huge shoutout to this class and teaching staff for all of the support. You make making fun.
+    </p>
+    <p class="margin"></p>
+
+    <h5>Programming it</h5>
+    <p>
+      As a nod towards my key learning from this project -- namely, how important it is to call for help -- I made the
+      LED flash "SOS" in morse code when you push the button.
+    </p>
+    <p>
+      <img src="images/sos.gif" alt="sos">
+    </p>
+    <p>
+      My code:<br />
+    <pre><code>
     #define switchPin 4  // Use the actual pin you're connecting
     #define ledPin 16
     #define numFlashes 1
@@ -211,16 +230,16 @@
       dit();
     }
     </code></pre>
-</p>
-<!-- <div class="flexrow">
+    </p>
+    <!-- <div class="flexrow">
   <a id="btn" href="images/fanlampfiles.zip" download>Download all the Fusion files
   </a>
 </div> -->
 
 
-</div>
+  </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

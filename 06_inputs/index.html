@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<title>PS70: Intro to Digital Fabrication </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script> 
-<link href="../style.css" rel="stylesheet">
+<head>
+  <title>PS70: Intro to Digital Fabrication</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<nav class="navbar navbar-expand-sm navbar-dark">
-  <div style="align-items: center; justify-content: center;" class="container-fluid">
-    <div class="navbar-nav">
-    
-      <h4><a class="nav-link" href="../index.html">Wyatt's PS70</a></h4>
-      <h4><a class="nav-link" href="../about.html">About</a></h4>
-      
-    </div>
-  </div>
-</nav>
+</head>
 
 <body>
+
+  <nav class="navbar navbar-expand-sm navbar-dark">
+    <div style="align-items: center; justify-content: center;" class="container-fluid">
+      <div class="navbar-nav">
+        <h4><a class="nav-link" href="../index.html">Wyatt's PS70</a></h4>
+      </div>
+      <div>
+        <h4><a class="nav-link" href="../about.html">About</a></h4>
+      </div>
+    </div>
+  </nav>
 <div class="textcontainer">
 
 <h3>Week 6: Inputs</h3>
 <p class="margin">   </p>
 <p>
-  <img src="images/1compass.jpeg" alt="compass" style="width:50%">
+  <img src="images/1compass.jpeg" alt="compass">
 </p>
 
 <p class="margin">   </p>
@@ -61,7 +65,7 @@
     I decided to use lego to make the scale's base because it's such a fast prototyping tool. There are a ton of little design features hiding in these colored blocks -- pieces that stabilize and center the container, a platform that offsets the sponge width so the container can be bigger than the platform without running into the stabilizing walls, and a jig to keep the copper sheets in place and prevent their misalignment from artificially changing the capacitance readings.
 </p>
 <p>
-  <img src="images/7scaledesgin.JPG" alt="scale" style="width:30%">
+  <img src="images/7scaledesgin.JPG" alt="scale">
 </p>
 <p>
   After a bunch of experimentation, it was stable. 
@@ -88,7 +92,8 @@
   I found and modified code that would measure the capacitance N times per second and print those values to Arduino IDE's serial monitor. 
   </p>
   <p>
-    <pre><code>long result;   //variable for the result of the tx_rx measurement.
+    <pre><code>
+      long result;   //variable for the result of the tx_rx measurement.
       int analog_pin = 32;
       int tx_pin = 4;
       int N_samples = 100;    // Number of samples to take.  Larger number slows it down, but reduces scatter.
@@ -233,7 +238,7 @@
   For this CNC assignment I want to cut out a map of my home, Sydney. I used <a href="http://touchterrain.geol.iastate.edu/main?trlat=-33.760993810043225&trlon=151.32762710839842&bllat=-33.92752013498495&bllon=151.18297378808595&scale=1.00&DEM_name=JAXA/ALOS/AW3D30/V2_2&tilewidth=100&printres=0.4&ntilesx=1&ntilesy=1&DEMresolution=53.55&basethick=5&zscale=4&fileformat=STLb&maptype=roadmap&gamma=1&transp=20&hsazi=315&hselev=45&map_lat=-33.8671598915676&map_lon=151.1962489345703&map_zoom=12" target="_blank">Touch Terrain</a>, a wonderful web app, to make this STL. 
 </p>
 <p>
-  <img src="images/14sydney.png" alt="terrain" style="width:30%">
+  <img src="images/14sydney.png" alt="terrain">
 </p>
 
 

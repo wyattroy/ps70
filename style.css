@@ -19,7 +19,7 @@ p {
 }
 
 img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
 }
 
@@ -29,10 +29,11 @@ img {
 
 a {
   color: #000000;
+  text-decoration: none;
 }
 
 .container-fluid {
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
 }
 
@@ -47,7 +48,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 20px;
+  gap: 0px;
 }
 
 .navbar-nav a {
@@ -61,8 +62,10 @@ nav {
 }
 
 .nav-link {
-  padding: 10px;
+  padding-left: 10px;
+  padding-right:10px;
   color: #000000;
+  font-weight: bold;
 }
 
 #btn {
@@ -82,6 +85,9 @@ nav {
   flex-wrap: wrap;
 }
 
+.col-sm-4 {
+  padding-bottom: 20px;
+}
 .center-row {
   display: flex;
   justify-content: center;
@@ -112,17 +118,21 @@ code {
 /* Responsive font sizes and layout */
 @media (max-width: 600px) {
   body {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     padding: 10px;
     max-width: 100%;
   }
 
   p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   h4 {
