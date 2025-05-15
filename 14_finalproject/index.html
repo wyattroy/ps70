@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<title>PS70: Intro to Digital Fabrication </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PS70: Intro to Digital Fabrication </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
 
-<nav class="navbar navbar-expand-sm navbar-dark">
-  <div style="align-items: center; justify-content: center;" class="container-fluid">
-    <div class="navbar-nav">
+  <meta property="og:title" content="Pigeonbelt">
+  <meta property="og:description" content="Ugrade your senses">
+  <meta property="og:image" content="https://wyattroy.github.io/ps70/14_finalproject/images/pigeonhero.JPG">
+  <meta property="og:url" content="https://wyattroy.github.io/ps70/14_finalproject/index.html">
+  <meta property="og:type" content="website">
 
-      <h4><a class="nav-link" href="../index.html">Wyatt's PS70</a></h4>
-      <h4><a class="nav-link" href="../about.html">About</a></h4>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://wyattroy.github.io/ps70/14_finalproject/your-image.jpg">
 
+  <nav class="navbar navbar-expand-sm navbar-dark">
+    <div style="align-items: center; justify-content: center;" class="container-fluid">
+      <div class="navbar-nav">
+
+        <h4><a class="nav-link" href="../index.html">Wyatt's PS70</a></h4>
+        <h4><a class="nav-link" href="../about.html">About</a></h4>
+
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+
+</head>
 
 <body>
   <div class="textcontainer">
@@ -39,7 +54,10 @@
     </p>
 
     <p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/HRChZkY1ff0?si=RsbI2hP4wdDtwTNw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/HRChZkY1ff0?si=RsbI2hP4wdDtwTNw"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </p>
     <p>
       Features:
@@ -54,54 +72,54 @@
       <li>A USB charging port in the base</li>
       <li>A sturdy PLA housing that fits most belt widths and types</li>
       <li>A snap-on pigeon-embossed front face lid for easy access to the components</li>
-      </ul>
-      </p>
+    </ul>
+    </p>
 
-      <p>
-        <h4>How did we get here?</h4>
-      </p>
-   
-      <p>
-        <em>Staggeringly good fortune, excellent guidance, and a lot of work. </em>
-      </p>
-<p class="margin"></p>
+    <p>
+    <h4>How did we get here?</h4>
+    </p>
 
-      <p>
-      <h4>
-        Bosch BNO055
-      </h4>
-      </p>
-      <p>
-        <img src="images/bosch1.JPG" style="width:50%">
-      </p>
-      <p>
-        The Bosch BNO055 is a 9-axis IMU that has a built-in Kalman filter to smooth out the data it collects. It also
-        has a built-in compass, which is what I used to make the pigeonbelt point north. The BNO055 is a great sensor,
-        and completely made this project work. The original sensor was a nightmare to calibrate and make sense of, but
-        with just a little callibration, the Bosch spits out a fairly reliable Euler-angle Yaw reading that it
-        automatically bases around north -- at 0 degrees. Stunning.
-      </p>
-      <p>
-        Its quirks include: it needs a second to callibrate with very little movement when it's first turned on, and
-        sometimes it thinks north is in the wrong direction if there's interference from other magnetic fields. Its
-        orientation when vertical also required offsetting its "north" reading by 90 degrees because otherwise the X/Y/Z
-        axes seem to point west. But once all of that was accounted for, it simply worked. it's such a treat to plug in
-        a sensor, run test code for a few hours, and have it working that I'm just floored. Well done Bosch.
-      </p>
+    <p>
+      <em>Staggeringly good fortune, excellent guidance, and a lot of work. </em>
+    </p>
+    <p class="margin"></p>
 
-      <p>
-        <img src="images/breadboard.JPG" style="width:50%">
-      </p>
-      <p>
-        <em>The Bosch successfully wired to the Xiao!</em>
-      </p>
-<p class="margin">  </p>
+    <p>
+    <h4>
+      Bosch BNO055
+    </h4>
+    </p>
+    <p>
+      <img src="images/bosch1.JPG" style="width:50%">
+    </p>
+    <p>
+      The Bosch BNO055 is a 9-axis IMU that has a built-in Kalman filter to smooth out the data it collects. It also
+      has a built-in compass, which is what I used to make the pigeonbelt point north. The BNO055 is a great sensor,
+      and completely made this project work. The original sensor was a nightmare to calibrate and make sense of, but
+      with just a little callibration, the Bosch spits out a fairly reliable Euler-angle Yaw reading that it
+      automatically bases around north -- at 0 degrees. Stunning.
+    </p>
+    <p>
+      Its quirks include: it needs a second to callibrate with very little movement when it's first turned on, and
+      sometimes it thinks north is in the wrong direction if there's interference from other magnetic fields. Its
+      orientation when vertical also required offsetting its "north" reading by 90 degrees because otherwise the X/Y/Z
+      axes seem to point west. But once all of that was accounted for, it simply worked. it's such a treat to plug in
+      a sensor, run test code for a few hours, and have it working that I'm just floored. Well done Bosch.
+    </p>
 
-      <p>
-        <h4>
-          Code
-        </h4>
-        <pre>
+    <p>
+      <img src="images/breadboard.JPG" style="width:50%">
+    </p>
+    <p>
+      <em>The Bosch successfully wired to the Xiao!</em>
+    </p>
+    <p class="margin"> </p>
+
+    <p>
+    <h4>
+      Code
+    </h4>
+    <pre>
           <code>
 #include &lt;Adafruit_BNO055.h&gt;
 #include &lt;Adafruit_Sensor.h&gt;
@@ -172,277 +190,281 @@ void loop() {
               
           </code>
         </pre>
-      </p>
+    </p>
 
 
-<p class="margin">  </p>
+    <p class="margin"> </p>
 
 
-      <p>
-      <h4>
-        LED Monitor
-      </h4>
-      </p>
-      <p>
-        Once the Bosch was working, I wired in an LED to turn on and off when the BNO055 pointed north -- this way I
-        wouldn't have to rely on the serial monitor in Arduino IDE to tell. The LED is wired in series with a resistor
-        and attached to Xiao pin D7, and I coded it to be on always <em>except</em> when the board points north -- this
-        design would by default show me that the device is on and functioning, and also communicate that the sensor is
-        working.
-      </p>
-      <p>
-        To my surprise, this worked flawlessly and was intuitive to interpret.
-      </p>
+    <p>
+    <h4>
+      LED Monitor
+    </h4>
+    </p>
+    <p>
+      Once the Bosch was working, I wired in an LED to turn on and off when the BNO055 pointed north -- this way I
+      wouldn't have to rely on the serial monitor in Arduino IDE to tell. The LED is wired in series with a resistor
+      and attached to Xiao pin D7, and I coded it to be on always <em>except</em> when the board points north -- this
+      design would by default show me that the device is on and functioning, and also communicate that the sensor is
+      working.
+    </p>
+    <p>
+      To my surprise, this worked flawlessly and was intuitive to interpret.
+    </p>
 
-      <p class="margin">  </p>
-
-
-      <p>
-      <h4>
-        Eccentric motor
-      </h4>
-      </p>
-      <p>
-        I couldn't find any button-sized eccentric motors in the lab, which was fortunate because Nathan instead found a
-        slightly larger one that created a stronger buzz. I tested it in a benchtop power supply and realized that it
-        could be powered directly by the Xiao, which was a huge boost for my miniaturization efforts. I added in code
-        that would turn on the motor when the LED turned off, which was when the board was pointing north.
-      </p>
-      <p>
-        To my surprise, once again, this simply worked. Goodness. Was I <em>learning</em>? Or lucky? Definitely both!
-      </p>
-
-      <p>
-        <img src="images/breadboardcomplete.JPG" style="width:50%">
-      </p>
-      <p>
-        <em>
-          The full working guts of the pigeonbelt!
-        </em>
-      </p>
-
-      <p class="margin">  </p>
-
-      <p>
-        <h4>
-          Li-Po Battery and switch
-        </h4>
-        </p>
-  
-        <p>
-          <img src="images/batterysolder.JPG" style="width:50%">
-        </p> 
-        <p>
-          The battery is a 3.7V battery that fits directly behind the prototyping breadboard. I soldered it to the Xiao's
-          +/- terminals via an outlet cord, so that I could replace the battery in the future without needing to resolder
-          anything or rip apart the board.
-        </p>
-        <p>
-          After getting the whole board working correctly, I decided to do something super risky — put in a switch. This
-          required snipping one of the battery's wires and soldering it to the switch terminals. My soldering technique
-          was pretty solid after building the breadboard, and fortunately when I turned on the switch, the LED lit up and
-          the power flowed.
-        </p>
-
-        <p class="margin"></p>
-
-      <p>
-      <h4>
-        Prototyping Breadboard
-      </h4>
-      </p>
-      <p>
-        <img src="images/prototypebreadboard.JPG" style="width:50%">
-      </p>
-      <p>
-        <em>Safe, working, undo-able breadboard on the left. Scary, blank, solder-required, no-turning-back prototyping breadboard on the right.</em>
-      </p>
-      <p>
-        After getting everything working on the breadboard, the most nerve-wracking step was removing all of the
-        components and permanently soldering them to a prototype breadboard. I needed to do this to save space and
-        increase durability of the pigeonbelt -- but it required breaking apart my fully working circuits and
-        wire-by-wire soldering them to both the front and back of a prototyping breadboard. The cable management was
-        scary because photos didn't convey which hole each wire was going into -- parallax and perspective from the
-        camera line sometimes meant that certain cables appeared to go into one hole, but in fact went in to the hole
-        just next to it. I decided to use gaussian splats with Polycam to solve this issue: if a photo didn't have
-        enough information in it for me to be 1000% confident about where I needed to solder each wire, then a full 3D
-        model might.
-      </p>
-      <p>
-        I took 100 photos of the breadboard from all angles, moving the phone in a dome over it while in Macro photo
-        mode. Polycam generated this stunning splat in a few minutes. Notably, the 3D model it generated was far too
-        blurry and imprecise to be useful. Gaussian splats have completely changed the game of reality capture.
-      </p>
-      <p>
-        <iframe src="https://poly.cam/capture/4923C63B-76D1-4616-A157-58D692C2E667/embed" title="Polycam capture viewer" style="height:100%;width:100%;max-height:720px;max-width:1280px;min-height:400px;min-width:280px" frameborder="0"></iframe>
-      </p>
-      <p>
-        <em>Click around the splat!</em>
-      </p>
-
-      <p>
-        With my 3D model reference, I felt confident ripping apart the breadboard and beginning to solder. This ia a
-        tricky process because the wires get soldered to both the front and the back of the breadboard, which is hard to
-        visualize -- and if you get even a single connection wrong, the whole thing won't work and it'll be almost
-        impossible to debug the reason. The splat was absolutely crucial. I'm blown away -- after an hour of intense
-        focus and soldering, when I plugged the battery in, the chips turned on and the LED flashed when I aimed it
-        north. I almost wept.
-      </p>
-      <p>
-        <img src="images/breadboardprototypedone.JPG" style="width:50%">
-      </p>
-      <p>
-        <em>The Bosch successfully wired to the Xiao!</em>
-      </p>
+    <p class="margin"> </p>
 
 
-      <p class="margin">  </p>
+    <p>
+    <h4>
+      Eccentric motor
+    </h4>
+    </p>
+    <p>
+      I couldn't find any button-sized eccentric motors in the lab, which was fortunate because Nathan instead found a
+      slightly larger one that created a stronger buzz. I tested it in a benchtop power supply and realized that it
+      could be powered directly by the Xiao, which was a huge boost for my miniaturization efforts. I added in code
+      that would turn on the motor when the LED turned off, which was when the board was pointing north.
+    </p>
+    <p>
+      To my surprise, once again, this simply worked. Goodness. Was I <em>learning</em>? Or lucky? Definitely both!
+    </p>
 
-      
+    <p>
+      <img src="images/breadboardcomplete.JPG" style="width:50%">
+    </p>
+    <p>
+      <em>
+        The full working guts of the pigeonbelt!
+      </em>
+    </p>
 
- 
+    <p class="margin"> </p>
 
-      <p>
-      <h4>
-        Housing
-      </h4>
-      </p>
-      <p>
-        <img src="images/fusionbuckle.gif" style="width:50%">
-      </p>
-      
-      
-      <p>
-        I designed a brand new housing in Fusion. This one needed to be comfortable enough to wear all day without
-        scratching you -- which required filleting the corners. It also needed to be fully undoable -- I wanted to be
-        able to take it apart and replace things later, instead of rely on glue.
-      </p>
-      <p>
-        The front face snaps on with special snug tabs. The self-contained breadboard screws in with 4 screwholes. The
-        whole assembly can be printed in 5 hours.
-      </p>
-      <p>
-        My first version didn't have the USB hole, or LED hole, or switch hole in the right place. The second version
-        <em>mostly</em> did -- but the switch hole had to be extended a bit, quite manually. Also, apparently the PS70
-        Prusa printers are much higherquality than the GSD's Dremel ones, because my final print from the GSD machines
-        was much rougher, and the support material was a nightmare to remove. Ultimately I needed to use a heat gun
-        which caused the scrow mounting holes to bend. In future, I like the control afforded by the Prusa slicer app
-        and will use these PS70 machines as my default.
-      </p>
+    <p>
+    <h4>
+      Li-Po Battery and switch
+    </h4>
+    </p>
 
-      <p class="margin">  </p>
+    <p>
+      <img src="images/batterysolder.JPG" style="width:50%">
+    </p>
+    <p>
+      The battery is a 3.7V battery that fits directly behind the prototyping breadboard. I soldered it to the Xiao's
+      +/- terminals via an outlet cord, so that I could replace the battery in the future without needing to resolder
+      anything or rip apart the board.
+    </p>
+    <p>
+      After getting the whole board working correctly, I decided to do something super risky — put in a switch. This
+      required snipping one of the battery's wires and soldering it to the switch terminals. My soldering technique
+      was pretty solid after building the breadboard, and fortunately when I turned on the switch, the LED lit up and
+      the power flowed.
+    </p>
 
-      <p>
-      <h4>
-        Front face
-      </h4>
-      </p>
-      <p>
-        <img src="images/pigeondrawing.JPG" style="width:50%">
-      </p>
-      <p>
-        Julia drew a very proud pigeon for the belt buckle. I took a photo of it and brought it into photoshop to shade
-        it, so that the brighter parts would come forward and the darker parts would be pushed back when I applied the
-        image as a displacement mask in blender.
-      </p>
-      <p>
-        <img src="images/pigeonphotoshop.jpg" style="width:50%">
-      </p>
-      <p>
-        After messing around between photoshop and blender together for an hour, we got the pigeon looking the way we
-        liked; with its hat and tie sticking out, its wing slightly curved, and the background faded in a gradient that
-        when printed would look like a radar signal coming out from the pigeon!
-      </p>
-      <p>
-        <img src="images/pigeonblender.gif" style="width:50%">
-      </p>
-      <p>
-        I then used Extrude in blender to give the pigeon's displaced surface some volume, used a boolean difference to
-        cut a straigh flat bottom to it, and created a corner-cutting cube in blender to make each of the pigeon
-        faceplate's corners match the filleting of the buckle lid from fusion. This was fairly manual and I'm sure there
-        exists a better way to do it, but you have to go with what you've got!
-      </p>
+    <p class="margin"></p>
 
-      <p>
-        <img src="images/frontface1.JPG" style="width:50%">
-      </p>
-      <p>
-        I superglued the pigeon faceplate to the buckle lid, and sanded the edges. Then I painted all of it with Buff n
-        Scuff, or Rough n Buff, or whatever that metallic paint is called, to give the buckle an old western cowboy
-        burnished feel.
-      </p>
-      <p>
-        <img src="images/frontface2.JPG" style="width:50%">
-      </p>
+    <p>
+    <h4>
+      Prototyping Breadboard
+    </h4>
+    </p>
+    <p>
+      <img src="images/prototypebreadboard.JPG" style="width:50%">
+    </p>
+    <p>
+      <em>Safe, working, undo-able breadboard on the left. Scary, blank, solder-required, no-turning-back prototyping
+        breadboard on the right.</em>
+    </p>
+    <p>
+      After getting everything working on the breadboard, the most nerve-wracking step was removing all of the
+      components and permanently soldering them to a prototype breadboard. I needed to do this to save space and
+      increase durability of the pigeonbelt -- but it required breaking apart my fully working circuits and
+      wire-by-wire soldering them to both the front and back of a prototyping breadboard. The cable management was
+      scary because photos didn't convey which hole each wire was going into -- parallax and perspective from the
+      camera line sometimes meant that certain cables appeared to go into one hole, but in fact went in to the hole
+      just next to it. I decided to use gaussian splats with Polycam to solve this issue: if a photo didn't have
+      enough information in it for me to be 1000% confident about where I needed to solder each wire, then a full 3D
+      model might.
+    </p>
+    <p>
+      I took 100 photos of the breadboard from all angles, moving the phone in a dome over it while in Macro photo
+      mode. Polycam generated this stunning splat in a few minutes. Notably, the 3D model it generated was far too
+      blurry and imprecise to be useful. Gaussian splats have completely changed the game of reality capture.
+    </p>
+    <p>
+      <iframe src="https://poly.cam/capture/4923C63B-76D1-4616-A157-58D692C2E667/embed" title="Polycam capture viewer"
+        style="height:100%;width:100%;max-height:720px;max-width:1280px;min-height:400px;min-width:280px"
+        frameborder="0"></iframe>
+    </p>
+    <p>
+      <em>Click around the splat!</em>
+    </p>
 
-      <p class="margin">  </p>
+    <p>
+      With my 3D model reference, I felt confident ripping apart the breadboard and beginning to solder. This ia a
+      tricky process because the wires get soldered to both the front and the back of the breadboard, which is hard to
+      visualize -- and if you get even a single connection wrong, the whole thing won't work and it'll be almost
+      impossible to debug the reason. The splat was absolutely crucial. I'm blown away -- after an hour of intense
+      focus and soldering, when I plugged the battery in, the chips turned on and the LED flashed when I aimed it
+      north. I almost wept.
+    </p>
+    <p>
+      <img src="images/breadboardprototypedone.JPG" style="width:50%">
+    </p>
+    <p>
+      <em>The Bosch successfully wired to the Xiao!</em>
+    </p>
 
-      <p>
-      <h4>
-        Final assembly
-      </h4>
-      </p>
-      <p>
-        I used Julia's grandpa's old leather belt, drilled some new holes through it to fit the buckle's peg diameter,
-        and took it for a spin.
-      </p>
-      <p>
-        It worked. I mean, it really worked. The vibrating isn't annoying -- unless you're standing facing due north.
-        It's noticeable but subtle. And it has already started changing the way I understand space as I walk between
-        buildings at harvard and my home. I'm just stunned. And so proud of myself. And so unbelievably grateful to
-        Nathan, Bobby, and Kassia for everything they did to teach me how to build the nonsensical things in my head.
-        This project has been an idea since I was ten. Twenty-six years later, here we are. What a world.
-      </p>
 
-      <p>
-        <img src="images/pigeonbeltworn.gif" style="width:80%">
-      </p>
+    <p class="margin"> </p>
 
-      <p class="margin">  </p>
 
-      <p>
-      <h3>
-        Future Iterations
-      </h3>
-      </p>
-      <p>
-        I want to make some changes to it, of course.
-        <ul>
-          <li>
-            The switch hole location needs to be adjusted in my fusion file -- I manually corrected it with a scalpel on my 3D print
-          </li>
-          <li>
-            the housing needs to be reprinted with greater precision so that the screw holes are more snug
-          </li>
-          <li>
-            the code needs to be tweaked so that the belt only buzzes once when facing north -- not continuously. I'd also
-            love to experiment with having it buzz twice, faster, if you're facing south, so that there would be another
-            orientation touchpoint to pay attention to if you happen to be walking mostly south (like I do on my way home).
-          </li>
-          <li>
-            I need to test the recharging behavior -- I should be able to simply plug a usb into the Xiao and have that
-            charge the Li-Po battery, but sometimes these things take a little more wizardry to get right.
-          </li>
-        </ul>
-      </p>
-      <p>
-        Other than that, I honestly think this thing is ready for production. If I put it all on a fully integrated PCB
-        it could be half the thickness and 20% smaller in height and width -- a truly viable product!
-      </p>
 
-<p>
-  <img src="images/pigeonbelt.png">
-</p>
-<p>
-  <em>And the final product looks exactly how I'd initially imagined!</em>
-</p>
 
-<p class="margin">  </p>
 
-      <div class="flexrow">
-        <a id="btn" href="images/pigeonbeltfiles.zip" download>Download all the files
-        </a>
-      </div>
+    <p>
+    <h4>
+      Housing
+    </h4>
+    </p>
+    <p>
+      <img src="images/fusionbuckle.gif" style="width:50%">
+    </p>
+
+
+    <p>
+      I designed a brand new housing in Fusion. This one needed to be comfortable enough to wear all day without
+      scratching you -- which required filleting the corners. It also needed to be fully undoable -- I wanted to be
+      able to take it apart and replace things later, instead of rely on glue.
+    </p>
+    <p>
+      The front face snaps on with special snug tabs. The self-contained breadboard screws in with 4 screwholes. The
+      whole assembly can be printed in 5 hours.
+    </p>
+    <p>
+      My first version didn't have the USB hole, or LED hole, or switch hole in the right place. The second version
+      <em>mostly</em> did -- but the switch hole had to be extended a bit, quite manually. Also, apparently the PS70
+      Prusa printers are much higherquality than the GSD's Dremel ones, because my final print from the GSD machines
+      was much rougher, and the support material was a nightmare to remove. Ultimately I needed to use a heat gun
+      which caused the scrow mounting holes to bend. In future, I like the control afforded by the Prusa slicer app
+      and will use these PS70 machines as my default.
+    </p>
+
+    <p class="margin"> </p>
+
+    <p>
+    <h4>
+      Front face
+    </h4>
+    </p>
+    <p>
+      <img src="images/pigeondrawing.JPG" style="width:50%">
+    </p>
+    <p>
+      Julia drew a very proud pigeon for the belt buckle. I took a photo of it and brought it into photoshop to shade
+      it, so that the brighter parts would come forward and the darker parts would be pushed back when I applied the
+      image as a displacement mask in blender.
+    </p>
+    <p>
+      <img src="images/pigeonphotoshop.jpg" style="width:50%">
+    </p>
+    <p>
+      After messing around between photoshop and blender together for an hour, we got the pigeon looking the way we
+      liked; with its hat and tie sticking out, its wing slightly curved, and the background faded in a gradient that
+      when printed would look like a radar signal coming out from the pigeon!
+    </p>
+    <p>
+      <img src="images/pigeonblender.gif" style="width:50%">
+    </p>
+    <p>
+      I then used Extrude in blender to give the pigeon's displaced surface some volume, used a boolean difference to
+      cut a straigh flat bottom to it, and created a corner-cutting cube in blender to make each of the pigeon
+      faceplate's corners match the filleting of the buckle lid from fusion. This was fairly manual and I'm sure there
+      exists a better way to do it, but you have to go with what you've got!
+    </p>
+
+    <p>
+      <img src="images/frontface1.JPG" style="width:50%">
+    </p>
+    <p>
+      I superglued the pigeon faceplate to the buckle lid, and sanded the edges. Then I painted all of it with Buff n
+      Scuff, or Rough n Buff, or whatever that metallic paint is called, to give the buckle an old western cowboy
+      burnished feel.
+    </p>
+    <p>
+      <img src="images/frontface2.JPG" style="width:50%">
+    </p>
+
+    <p class="margin"> </p>
+
+    <p>
+    <h4>
+      Final assembly
+    </h4>
+    </p>
+    <p>
+      I used Julia's grandpa's old leather belt, drilled some new holes through it to fit the buckle's peg diameter,
+      and took it for a spin.
+    </p>
+    <p>
+      It worked. I mean, it really worked. The vibrating isn't annoying -- unless you're standing facing due north.
+      It's noticeable but subtle. And it has already started changing the way I understand space as I walk between
+      buildings at harvard and my home. I'm just stunned. And so proud of myself. And so unbelievably grateful to
+      Nathan, Bobby, and Kassia for everything they did to teach me how to build the nonsensical things in my head.
+      This project has been an idea since I was ten. Twenty-six years later, here we are. What a world.
+    </p>
+
+    <p>
+      <img src="images/pigeonbeltworn.gif" style="width:80%">
+    </p>
+
+    <p class="margin"> </p>
+
+    <p>
+    <h3>
+      Future Iterations
+    </h3>
+    </p>
+    <p>
+      I want to make some changes to it, of course.
+    <ul>
+      <li>
+        The switch hole location needs to be adjusted in my fusion file -- I manually corrected it with a scalpel on my
+        3D print
+      </li>
+      <li>
+        the housing needs to be reprinted with greater precision so that the screw holes are more snug
+      </li>
+      <li>
+        the code needs to be tweaked so that the belt only buzzes once when facing north -- not continuously. I'd also
+        love to experiment with having it buzz twice, faster, if you're facing south, so that there would be another
+        orientation touchpoint to pay attention to if you happen to be walking mostly south (like I do on my way home).
+      </li>
+      <li>
+        I need to test the recharging behavior -- I should be able to simply plug a usb into the Xiao and have that
+        charge the Li-Po battery, but sometimes these things take a little more wizardry to get right.
+      </li>
+    </ul>
+    </p>
+    <p>
+      Other than that, I honestly think this thing is ready for production. If I put it all on a fully integrated PCB
+      it could be half the thickness and 20% smaller in height and width -- a truly viable product!
+    </p>
+
+    <p>
+      <img src="images/pigeonbelt.png">
+    </p>
+    <p>
+      <em>And the final product looks exactly how I'd initially imagined!</em>
+    </p>
+
+    <p class="margin"> </p>
+
+    <div class="flexrow">
+      <a id="btn" href="images/pigeonbeltfiles.zip" download>Download all the files
+      </a>
+    </div>
 
 
   </div>
